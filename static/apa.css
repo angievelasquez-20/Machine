@@ -1,0 +1,61 @@
+/* apa.css – Estilos basados en normas APA 7ª edición */
+
+/* Márgenes de 1 pulgada */
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 2; /* doble espacio */
+  margin: 2.54cm;
+  color: #000;
+}
+
+/* Encabezado APA con número de página alineado a la derecha */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 12pt;
+  margin-bottom: 1rem;
+}
+
+header .pagenum::before {
+  content: counter(page);
+}
+
+/* Títulos */
+h1, h2, h3 {
+  font-weight: bold;
+}
+h1 {
+  text-align: center;
+  font-size: 16pt;
+  margin-bottom: 1rem;
+}
+
+/* Sangría de primera línea en párrafos */
+p {
+  text-align: justify;
+  text-indent: 1.27cm;
+  margin-bottom: 1rem;
+}
+
+/* Referencias APA */
+.referencias h2 {
+  font-size: 14pt;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.lista-referencias {
+  list-style: none;
+  padding: 0;
+}
+.lista-referencias li {
+  margin-bottom: 0.75rem;
+  text-indent: -1.27cm;
+  padding-left: 1.27cm;
+}
+.lista-referencias li::before {
+  content: "";
+  display: inline-block;
+  width: 1.27cm;
+}
