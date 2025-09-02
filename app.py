@@ -21,19 +21,19 @@ def Actividad3():
 
 
 @app.route('/Caso1')
-def Actividad3():
+def Caso1():
      return render_template('Caso1.html')
 
 @app.route('/Caso2')
-def Actividad3():
+def Caso2():
      return render_template('Caso2.html')
 
 @app.route('/Caso3')
-def Actividad3():
+def Caso3():
      return render_template('Caso3.html')
 
 @app.route('/Caso4')
-def Actividad3():
+def Caso4():
      return render_template('Caso4.html')
      
 
