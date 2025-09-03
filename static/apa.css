@@ -1,61 +1,50 @@
-/* apa.css – Estilos basados en normas APA 7ª edición */
-
-/* Márgenes de 1 pulgada */
 body {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 12pt;
-  line-height: 2; /* doble espacio */
-  margin: 2.54cm;
-  color: #000;
+    background-color: #f8f9fa; /* Un gris muy claro, similar al de Bootstrap */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
-/* Encabezado APA con número de página alineado a la derecha */
-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 12pt;
-  margin-bottom: 1rem;
-}
-
-header .pagenum::before {
-  content: counter(page);
-}
-
-/* Títulos */
-h1, h2, h3 {
-  font-weight: bold;
-}
 h1 {
-  text-align: center;
-  font-size: 16pt;
-  margin-bottom: 1rem;
+    text-align: center;
+    color: #007bff; /* Un azul brillante para el título principal */
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.navbar {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Fondo blanco para la barra de navegación */
+    padding: 10px 20px;
 }
 
-/* Sangría de primera línea en párrafos */
-p {
-  text-align: justify;
-  text-indent: 1.27cm;
-  margin-bottom: 1rem;
+.nav-link {
+    font-weight: 500;
+    color: #555 !important; /* Color de texto para los enlaces */
+    transition: color 0.3s ease;
 }
 
-/* Referencias APA */
-.referencias h2 {
-  font-size: 14pt;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
+.nav-link:hover {
+    color: #007bff !important; /* Cambia de color al pasar el cursor */
 }
-.lista-referencias {
-  list-style: none;
-  padding: 0;
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 10px 0;
 }
-.lista-referencias li {
-  margin-bottom: 0.75rem;
-  text-indent: -1.27cm;
-  padding-left: 1.27cm;
+
+.dropdown-item {
+    font-size: 0.95em;
+    color: #333;
+    padding: 8px 20px;
+    transition: background-color 0.2s ease;
 }
-.lista-referencias li::before {
-  content: "";
-  display: inline-block;
-  width: 1.27cm;
+
+.dropdown-item:hover {
+    background-color: #e9ecef; /* Un gris muy claro al pasar el cursor */
+    color: #007bff;
 }
