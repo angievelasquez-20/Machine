@@ -1,5 +1,7 @@
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
+import RegresionLineal
+
 
 app = Flask(__name__)
 
@@ -35,6 +37,21 @@ def Caso3():
 @app.route('/Caso4')
 def Caso4():
      return render_template('Caso4.html')
+
+@app.route('/LR', methods=['GET','POST'])
+def LR():
+     calculateResult = None
+     ## if request.method == 'POST':
+     calculateResult = RegresionLineal.calculateGrade(5)
+     return "prediccion final grade" + str(calculateResult)
+
+@app.route("/linearRegression/", methods=["GET", "POST"])
+def calculateGrade():
+    calculateResult = None
+    if request.method == "POST":
+        hours = float(request.form["hours"])
+        calculateResult = RegresionLineal.calculateGrade(hours)
+    return render_template("linearRegressionGrades.html", result = calculateResult)
      
 
 if __name__ == '__main__':
