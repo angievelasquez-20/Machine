@@ -6,14 +6,14 @@
     <title>Linear Regression Grades</title>
 </head>
 <body>
-    <h1> Linear Regression : Calculate Grade Depends On Study Hours</h1>
+    <h1> Regresion Lineal: Calcular calificación según horas de estudio</h1>
     <form method="post">
-        <label for="hours">Study Hours</label>
+        <label for="hours">Horas de estudio</label>
         <input type="number" name="hours" required>
-        <button type="submit"> Predict </button>
+        <button type="submit"> Predicción </button>
     </form>
     {% if result is not none %}
-        <h2> Estimated Grade : {{result}}</h2>
+        <h2> Calificación estimada : {{result}}</h2>
     {% endif %}
 </body>
 </html>

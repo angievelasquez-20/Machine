@@ -41,17 +41,10 @@ def Caso4():
 @app.route('/LR', methods=['GET','POST'])
 def LR():
      calculateResult = None
-     ## if request.method == 'POST':
-     calculateResult = RegresionLineal.calculateGrade(5)
-     return "prediccion final grade" + str(calculateResult)
-
-@app.route("/linearRegression/", methods=["GET", "POST"])
-def calculateGrade():
-    calculateResult = None
-    if request.method == "POST":
-        hours = float(request.form["hours"])
-        calculateResult = RegresionLineal.calculateGrade(hours)
-    return render_template("linearRegressionGrades.html", result = calculateResult)
+     if request.method == 'POST':
+          hours = float(request.form['hours'])
+          calculateResult = RegresionLineal.calculateGrade(hours)
+     return render_template("templateRegresion.html", result = calculateResult)
      
 
 if __name__ == '__main__':
