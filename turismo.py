@@ -10,10 +10,12 @@ data = {
 }
 
 df = pd.DataFrame(data)
-
-model = LinearRegression()
-
 X = df[['temp_media', 'costo_pasaje']]
 y = df['num_turistas']
 
+model = LinearRegression()
+
 model.fit(X, y)
+def predict_tourists(temp_media, costo_pasaje):
+    result = model.predict([[temp_media, costo_pasaje]])[0]
+    return result
