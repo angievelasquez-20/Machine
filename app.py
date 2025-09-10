@@ -6,13 +6,13 @@ import RegresionLineal
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/name")
 def home():
     name = None
     name = "Flask"
     return f"hello, {name}!"
 
-@app.route('/Index')
+@app.route('/')
 def Index():
      Myname= "Flask"
      return render_template('Index.html', name=Myname)
