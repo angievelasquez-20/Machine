@@ -7,14 +7,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-
-@app.route("/")
-def home():
-    name = None
-    name = "Flask"
-    return f"hello, {name}!"
-
-@app.route('/Index')
+@app.route('/')
 def Index():
      Myname= "Flask"
      return render_template('Index.html', name=Myname)
