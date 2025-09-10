@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 import numpy as np
 from turismo import predict_tourists
+import RegresionLineal as RegresionLineal
 
 app = Flask(__name__)
 
@@ -28,6 +29,14 @@ def caso3():
 @app.route('/Caso4')
 def caso4():
      return render_template('Caso4.html')
+
+@app.route('/LR', methods=['GET','POST'])
+def LR():
+     calculateResult = None
+     if request.method == 'POST':
+          hours = float(request.form['hours'])
+          calculateResult = RegresionLineal.calculateGrade(hours)
+     return render_template("templateRegresion.html", result = calculateResult)
 
 @app.route('/Actividad4', methods=['GET', 'POST'])
 def actividad4():
