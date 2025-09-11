@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 import numpy as np
 from turismo import predict_tourists
 import RegresionLineal as RegresionLineal
+from sklearn.linear_model import LogisticRegression
 
 app = Flask(__name__)
 
@@ -55,6 +56,28 @@ def actividad4():
                 'message': f'Error en la predicción: {str(e)}'
             })
     return render_template('Actividad4.html')
+
+@app.route('/RegresionLogistica', methods=['GET', 'POST'])
+def regresionLogistica():
+     if request.method == 'POST':
+          try:
+               age = float(request.form['age'])
+               cholesterol = float(request.form['cholesterol'])
+               BloodPressure = float(request.form['BloodPressure'])
+               smoker = int(request.form['smoker'])
+               ExerciseHours = float(request.form['ExerciseHours'])
+               return jsonify({
+                    'success': True,
+                    'message': 'Modelo entrenado correctamente'
+               })
+          except Exception as e:
+               return jsonify({
+                    'success': False,
+                    'message': f'Error en el procesamiento: {str(e)}'
+               })
+     return render_template('RegresionLogistica.html')
+          
+
 
 if __name__ == '__main__':
      app.run(debug=True)
