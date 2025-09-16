@@ -1,12 +1,19 @@
+import io
 from xml.parsers.expat import model
 from flask import Flask
 from flask import Flask, request, jsonify, render_template
 import pandas as pd
-from sklearn.linear_model import LinearRegression
 import numpy as np
 from turismo import predict_tourists
 import RegresionLineal as RegresionLineal
 from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
+import base64
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
 app = Flask(__name__)
 
@@ -57,27 +64,10 @@ def actividad4():
             })
     return render_template('Actividad4.html')
 
-@app.route('/RegresionLogistica', methods=['GET', 'POST'])
-def regresionLogistica():
-     if request.method == 'POST':
-          try:
-               age = float(request.form['age'])
-               cholesterol = float(request.form['cholesterol'])
-               BloodPressure = float(request.form['BloodPressure'])
-               smoker = int(request.form['smoker'])
-               ExerciseHours = float(request.form['ExerciseHours'])
-               return jsonify({
-                    'success': True,
-                    'message': 'Modelo entrenado correctamente'
-               })
-          except Exception as e:
-               return jsonify({
-                    'success': False,
-                    'message': f'Error en el procesamiento: {str(e)}'
-               })
-     return render_template('RegresionLogistica.html')
+@app.route('/confusion_matrix')
+def confusion_matrix():
+    return render_template('confusion_matrix.html')
           
-
 
 if __name__ == '__main__':
      app.run(debug=True)
