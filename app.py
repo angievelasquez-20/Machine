@@ -63,7 +63,6 @@ def actividad4():
             })
     return render_template('Actividad4.html')
 
-<<<<<<< HEAD
 @app.route('/RegresionLogistica', methods=['GET', 'POST'])
 def regresionLogistica():
      if request.method == 'POST':
