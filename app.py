@@ -1,6 +1,5 @@
 import io
 from xml.parsers.expat import model
-from flask import Flask
 from flask import Flask, request, jsonify, render_template
 import pandas as pd
 import numpy as np
@@ -67,7 +66,37 @@ def actividad4():
 @app.route('/confusion_matrix')
 def confusion_matrix():
     return render_template('confusion_matrix.html')
+
+
+@app.route('/Actividad5', methods=['GET', 'POST'])
+def actividad5():
+    if request.method == 'POST':
+        # Entrena el modelo y guarda la matriz de confusión
+        data = pd.read_csv('dataset/PlanPremium.csv')
+        X = data[['TiempoUsuarioMeses', 'ConsumoMensualGB', 'CategoriaDispositivo', 'PlanPremium']]
+        y = data['Contratacion']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        scaler = StandardScaler()
+        X_train = scaler.fit_transform(X_train)
+        X_test = scaler.transform(X_test)
+        from sklearn.ensemble import RandomForestClassifier
+        model = RandomForestClassifier(random_state=42)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        cm = confusion_matrix(y_test, y_pred)
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=model.classes_, yticklabels=model.classes_)
+        plt.title('Confusion Matrix - Contratacion')
+        plt.xlabel('Predicted')
+        plt.ylabel('True')
+        plt.tight_layout()
+        plt.savefig('static/confusion_matrix_planpremium.png')
+    return render_template('Actividad5.html')
+
           
+@app.route('/confusion_matrix_planpremium')
+def confusion_matrix_planpremium():
+     return render_template('confusion_matrix_planpremium.html')
 
 if __name__ == '__main__':
      app.run(debug=True)
