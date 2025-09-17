@@ -76,6 +76,10 @@ def regresionLogistica():
                     'message': f'Error en el procesamiento: {str(e)}'
                })
      return render_template('RegresionLogistica.html')
+
+@app.route('/confusion_matrix')
+def confusion_matrix():
+     return render_template('RegresionLogistica.html')
           
 
 
