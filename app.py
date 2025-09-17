@@ -87,12 +87,11 @@ def regresionLogistica():
 @app.route('/confusion_matrix')
 def confusion_matrix():
      return render_template('RegresionLogistica.html')
-          
-=======
+        
 @app.route('/confusion_matrix')
 def confusion_matrix():
     return render_template('confusion_matrix.html')
->>>>>>> 0447237229e01006c80fd35920dc20c0dcafddbf
+
 
 
 @app.route('/Actividad5', methods=['GET', 'POST'])
@@ -124,6 +123,11 @@ def actividad5():
 @app.route('/confusion_matrix_planpremium')
 def confusion_matrix_planpremium():
      return render_template('confusion_matrix_planpremium.html')
+
+@app.route('/ConceptosBasicos')
+def conceptosbasicos():
+     return render_template('ConceptosBasicos.html')
+
 
 if __name__ == '__main__':
      app.run(debug=True)
