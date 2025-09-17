@@ -98,5 +98,10 @@ def actividad5():
 def confusion_matrix_planpremium():
      return render_template('confusion_matrix_planpremium.html')
 
+@app.route('/ConceptosBasicos')
+def conceptosbasicos():
+     return render_template('ConceptosBasicos.html')
+
+
 if __name__ == '__main__':
      app.run(debug=True)
