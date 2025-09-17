@@ -87,12 +87,11 @@ def regresionLogistica():
 @app.route('/confusion_matrix')
 def confusion_matrix():
      return render_template('RegresionLogistica.html')
-          
-=======
+        
 @app.route('/confusion_matrix')
 def confusion_matrix():
     return render_template('confusion_matrix.html')
->>>>>>> 0447237229e01006c80fd35920dc20c0dcafddbf
+
 
 
 @app.route('/Actividad5', methods=['GET', 'POST'])
