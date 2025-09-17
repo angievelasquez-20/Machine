@@ -1,62 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Flask</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='apa.css')}}">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Flask</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='apa.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0d6efd, #0a4275);
+      color: #fff;
+      font-family: "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .dropdown-menu {
+      background-color: #0d6efd;
+    }
+
+    .dropdown-item {
+      color: #fff;
+    }
+
+    .dropdown-item:hover {
+      background-color: #084298;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #0a4275;
+      color: #f8f9fa;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Wolcome to {{name}}</h1>
- <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"></a>
-   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       
-      
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Actividad3
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Caso1">Análisis predictivos </a></li>
-            <li><a class="dropdown-item" href="Caso2">Segmentación de clientes.</a></li>
-            <li><a class="dropdown-item" href="Caso3">Detección de spam.</a></li>
-            <li><a class="dropdown-item" href="Caso4">Forecasting</a></li>
-          </ul>
-        </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Actividad4
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Actividad4">Turismo</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Actividad5
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="confusion_matrix"> Matriz </a></li>
-            <li><a class="dropdown-item" href="confusion_matrix_planpremium"> Matriz Plan Premium</a></li>
-            <li><a class="dropdown-item" href="ConceptosBasicos">Conceptos basicos</a></li>
-             </ul>
-          </a>
-          <ul class="dropdown-menu">
-          </ul>
-        </li>  
-      </ul>
+  <h1>Welcome to {{name}}</h1>
+
+  <!-- Navbar con colores Bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">FlaskApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          <!-- Actividad 3 -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Actividad 3</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Caso1">Análisis predictivos</a></li>
+              <li><a class="dropdown-item" href="Caso2">Segmentación de clientes</a></li>
+              <li><a class="dropdown-item" href="Caso3">Detección de spam</a></li>
+              <li><a class="dropdown-item" href="Caso4">Forecasting</a></li>
+            </ul>
+          </li>
+
+          <!-- Actividad 4 -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Actividad 4</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Actividad4">Turismo</a></li>
+            </ul>
+          </li>
+
+          <!-- Actividad 5 -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Actividad 5</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="confusion_matrix">Matriz</a></li>
+              <li><a class="dropdown-item" href="confusion_matrix_planpremium">Matriz Plan Premium</a></li>
+              <li><a class="dropdown-item" href="ConceptosBasicos">Conceptos básicos</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 FlaskApp | Diseñado con Bootstrap 💙</p>
+  </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
