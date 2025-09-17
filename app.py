@@ -63,9 +63,36 @@ def actividad4():
             })
     return render_template('Actividad4.html')
 
+<<<<<<< HEAD
+@app.route('/RegresionLogistica', methods=['GET', 'POST'])
+def regresionLogistica():
+     if request.method == 'POST':
+          try:
+               age = float(request.form['age'])
+               cholesterol = float(request.form['cholesterol'])
+               BloodPressure = float(request.form['BloodPressure'])
+               smoker = int(request.form['smoker'])
+               ExerciseHours = float(request.form['ExerciseHours'])
+               return jsonify({
+                    'success': True,
+                    'message': 'Modelo entrenado correctamente'
+               })
+          except Exception as e:
+               return jsonify({
+                    'success': False,
+                    'message': f'Error en el procesamiento: {str(e)}'
+               })
+     return render_template('RegresionLogistica.html')
+
+@app.route('/confusion_matrix')
+def confusion_matrix():
+     return render_template('RegresionLogistica.html')
+          
+=======
 @app.route('/confusion_matrix')
 def confusion_matrix():
     return render_template('confusion_matrix.html')
+>>>>>>> 0447237229e01006c80fd35920dc20c0dcafddbf
 
 
 @app.route('/Actividad5', methods=['GET', 'POST'])
