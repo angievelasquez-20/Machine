@@ -83,16 +83,6 @@ def regresionLogistica():
                })
      return render_template('RegresionLogistica.html')
 
-@app.route('/confusion_matrix')
-def confusion_matrix():
-     return render_template('RegresionLogistica.html')
-        
-@app.route('/confusion_matrix')
-def confusion_matrix():
-    return render_template('confusion_matrix.html')
-
-
-
 @app.route('/Actividad5', methods=['GET', 'POST'])
 def actividad5():
     if request.method == 'POST':
@@ -118,6 +108,9 @@ def actividad5():
         plt.savefig('static/confusion_matrix_planpremium.png')
     return render_template('Actividad5.html')
 
+@app.route('/confusion_matrix')
+def confusion_matrix():
+     return render_template('RegresionLogistica.html')
           
 @app.route('/confusion_matrix_planpremium')
 def confusion_matrix_planpremium():
