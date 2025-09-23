@@ -120,6 +120,14 @@ def confusion_matrix_planpremium():
 def conceptosbasicos():
      return render_template('ConceptosBasicos.html')
 
+@app.route('/RecomendacionPeliculas')
+def recomendacionpeliculas():
+     return render_template('RecomendacionPeliculas.html')
+
+@app.route('/CasoPracticoPeliculas')
+def casopracticopeliculas():
+     return render_template('CasoPracticoPeliculas.html')
+
 
 if __name__ == '__main__':
      app.run(debug=True)
