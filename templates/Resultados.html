@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados del Modelo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 style="text-align:center; color:#0d6efd;">Resultados del Modelo</h1>
+
+    <div style="text-align:center;">
+        <p><b>Accuracy:</b> {{ metrics.accuracy }}</p>
+        <p><b>Precision:</b> {{ metrics.precision }}</p>
+        <p><b>Recall:</b> {{ metrics.recall }}</p>
+        <p><b>F1 Score:</b> {{ metrics.f1 }}</p>
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+        <img src="{{ url_for('static', filename='confusion_matrix.png') }}" alt="Matriz de Confusión">
+    </div>
+</body>
+</html>
