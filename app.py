@@ -13,6 +13,8 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
+import RecomendacionPeliculas as rp
+import joblib, os
 
 app = Flask(__name__)
 
@@ -120,14 +122,38 @@ def confusion_matrix_planpremium():
 def conceptosbasicos():
      return render_template('ConceptosBasicos.html')
 
-@app.route('/RecomendacionPeliculas')
-def recomendacionpeliculas():
-     return render_template('RecomendacionPeliculas.html')
+@app.route('/RecomendacionPeliculas', methods=["GET", "POST"])
+def RecomendacionPeliculas():
+    resultado = None
+    prob = None
+
+    if request.method == "POST":
+        # Obtener datos del formulario
+        features = {
+            "EdadUsuario": int(request.form["EdadUsuario"]),
+            "HistorialVisualizaciones": int(request.form["HistorialVisualizaciones"]),
+            "PuntuacionesAnteriores": int(request.form["PuntuacionesAnteriores"]),
+            "GenerosFavoritos": int(request.form["GenerosFavoritos"]),
+            "TiempoUsoMeses": int(request.form["TiempoUsoMeses"])
+        }
+
+        # Hacer predicción
+        pred = rp.predict_label(features)
+        resultado = pred["label"]
+        prob = pred["probabilidad"]
+
+    return render_template("index.html", resultado=resultado, prob=prob)
+
+
 
 @app.route('/CasoPracticoPeliculas')
 def casopracticopeliculas():
      return render_template('CasoPracticoPeliculas.html')
 
+@app.route("/Resultados")
+def resultados():
+    metrics = rp.evaluate()
+    return render_template("Resultados.html", metrics=metrics)
 
 if __name__ == '__main__':
      app.run(debug=True)
