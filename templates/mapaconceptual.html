@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/apa.css">
+    <title>Clasificación en Machine Learning</title>  
+</head>
+<body>
+
+<div class="container">
+    <h1>Clasificación en Machine Learning</h1>
+    <p>La clasificación es un tipo de aprendizaje supervisado cuyo objetivo es predecir una etiqueta categórica discreta a partir de datos de entrada.</p>
+
+    <h2>Modelos Lineales</h2>
+    <ul>
+        <li>
+            <h3>Regresión Logística</h3>
+            <p>Calcula la probabilidad de que un punto de datos pertenezca a una clase. Utiliza la función sigmoide para transformar la salida en un valor entre 0 y 1. El modelo aprende a predecir el logit (logaritmo de las odds).</p>
+        </li>
+        <li>
+            <h3>SVM Lineal (Support Vector Machine)</h3>
+            <p>Encuentra el hiperplano óptimo que mejor separa las clases. Se basa en el concepto de margen máximo, la distancia más grande entre el hiperplano y los puntos más cercanos (los vectores de soporte). El parámetro C controla el equilibrio entre un margen grande y la tolerancia a errores.</p>
+        </li>
+    </ul>
+
+    <hr class="section-separator">
+
+    <h2>Modelos Basados en Distancia</h2>
+    <ul>
+        <li>
+            <h3>k-NN (k-Nearest Neighbors)</h3>
+            <p>Clasifica un nuevo punto de datos por una votación mayoritaria de sus k vecinos más cercanos. Las distancias se calculan con métricas como la euclídea o la de Manhattan, por lo que la normalización de los datos es crucial.</p>
+        </li>
+    </ul>
+
+    <hr class="section-separator">
+
+    <h2>Modelos Probabilísticos</h2>
+    <ul>
+        <li>
+            <h3>Naive Bayes</h3>
+            <p>Clasificador probabilístico que se basa en el teorema de Bayes con la suposición ingenua de independencia condicional entre las características. Las variantes incluyen Multinomial (para datos discretos) y Gaussiano (para datos continuos).</p>
+        </li>
+    </ul>
+
+    <hr class="section-separator">
+
+    <h2>Árboles y Ensambles</h2>
+    <ul>
+        <li>
+            <h3>Árbol de Decisión</h3>
+            <p>Crea una estructura similar a un árbol de decisiones para clasificar datos. Los criterios de división en cada nodo son la Gini Impurity o la Entropía. La profundidad del árbol es un factor clave que puede provocar overfitting.</p>
+        </li>
+        <li>
+            <h3>Random Forest</h3>
+            <p>Método de ensamble que construye un "bosque" de muchos árboles de decisión. Utiliza la técnica de bagging para entrenar cada árbol en un subconjunto aleatorio de datos, reduciendo el sobreajuste. El número de árboles se controla con n_estimators, y el error puede estimarse con el OOB (Out-of-Bag).</p>
+        </li>
+        <li>
+            <h3>Gradient Boosting</h3>
+            <p>Otro método de ensamble que construye árboles secuencialmente, corrigiendo los errores de los árboles anteriores en un proceso de aprendizaje aditivo. Se controla con la tasa de aprendizaje y la profundidad de los árboles. Variantes populares incluyen XGBoost, LightGBM y CatBoost.</p>
+        </li>
+    </ul>
+
+    <hr class="section-separator">
+
+    <h2>Redes Neuronales</h2>
+    <ul>
+        <li>
+            <h3>MLP (Multi-Layer Perceptron)</h3>
+            <p>Una red neuronal con múltiples capas de nodos. Las funciones de activación no lineales permiten aprender relaciones complejas. Se utilizan técnicas de regularización para prevenir el sobreajuste.</p>
+        </li>
+    </ul>
+
+    <hr class="section-separator">
+
+    <h2>Tópicos Transversales</h2>
+    <ul>
+        <li>
+            <h3>Preprocesamiento</h3>
+            <p>Preparación de datos para el modelo. Incluye el escalado de características, one-hot encoding para variables categóricas, e imputación para rellenar datos faltantes.</p>
+        </li>
+        <li>
+            <h3>Métricas</h3>
+            <p>Evaluación del rendimiento del modelo. La matriz de confusión muestra la relación entre predicciones correctas e incorrectas. Métricas clave derivadas son accuracy, precision, recall y F1-score. La curva ROC-AUC mide la capacidad de distinción del modelo.</p>
+        </li>
+    </ul>
+</div>
+
+<h1><a href="https://www.mindmeister.com/app/map/3823382303">Mapa conceptual de los algoritmos de clasificacion</a></h1>
+
+</body>
+</html>
