@@ -146,9 +146,30 @@ def RecomendacionPeliculas():
 
 
 
-@app.route('/CasoPracticoPeliculas')
-def casopracticopeliculas():
-     return render_template('CasoPracticoPeliculas.html')
+@app.route('/CasoPracticoPeliculas', methods=['GET', 'POST'])
+def caso_practico():
+    if request.method == 'POST':
+        # Capturar los valores enviados desde el formulario
+        edad = int(request.form['EdadUsuario'])
+        historial = int(request.form['HistorialVisualizaciones'])
+        puntuacion = int(request.form['PuntuacionesAnteriores'])
+        genero = int(request.form['GenerosFavoritos'])
+        tiempo = int(request.form['TiempoUsoMeses'])
+
+        # Aquí simulas un modelo de predicción (luego lo cambias por tu ML real)
+        if genero == 1 and puntuacion > 5:
+            resultado = "Sí"
+            prob = "0.85"
+        else:
+            resultado = "No"
+            prob = "0.40"
+
+        # Renderizar HTML mostrando resultados
+        return render_template("CasoPracticoPeliculas.html", 
+                               resultado=resultado, prob=prob)
+
+    # Si es GET, solo muestra el formulario vacío
+    return render_template("CasoPracticoPeliculas.html")
 
 @app.route("/Resultados")
 def resultados():

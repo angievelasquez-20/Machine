@@ -1,6 +1,7 @@
-pip install 
-pandas 
-scikit-learn 
-matplotlib 
-seaborn 
 flask
+scikit-learn
+pandas
+numpy
+matplotlib
+jinja2
+seaborn
