@@ -176,5 +176,9 @@ def resultados():
     metrics = rp.evaluate()
     return render_template("Resultados.html", metrics=metrics)
 
+@app.route('/mapaconceptual')
+def mapaconceptual():
+     return render_template('mapaconceptual.html')
+
 if __name__ == '__main__':
      app.run(debug=True)
