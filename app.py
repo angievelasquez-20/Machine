@@ -15,6 +15,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 import RecomendacionPeliculas as rp
 import joblib, os
+import gunicorn # Servidor WSGI para producción
 
 app = Flask(__name__)
 

@@ -5,3 +5,4 @@ numpy
 matplotlib
 jinja2
 seaborn
+guinicorn
